@@ -23,7 +23,7 @@ SPDX-License-Identifier: EPL-3.0
 
 The project maintains the following source code repositories:
 
-* https://github.com/eclipse/Xpect
+* https://github.com/eclipse-xpect/Xpect
 
 ## Third-party Content
 

@@ -21,7 +21,7 @@
       label="Xpect Installation">
     <productVersion
         href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.committers']/@versions[name='latest']"/>
-    <description>The Xpect installation provides the tools needed to work with  the set of projects from &lt;a href=&quot;https://github.com/eclipse/Xpect&quot;>Xpect's GitHub repository&lt;/a>.</description>
+    <description>The Xpect installation provides the tools needed to work with  the set of projects from &lt;a href=&quot;https://github.com/eclipse-xpect/Xpect&quot;>Xpect's GitHub repository&lt;/a>.</description>
   </installation>
   <workspace
       name="xpect.workspace"
@@ -40,11 +40,11 @@
     </setupTask>
     <stream
         href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='xpect']/@streams[name='master']"/>
-    <description>The Xpect workspace provides the set of projects from &lt;a href=&quot;https://github.com/eclipse/Xpect&quot;>Xpects's GitHub repository&lt;/a>.</description>
+    <description>The Xpect workspace provides the set of projects from &lt;a href=&quot;https://github.com/eclipse-xpect/Xpect&quot;>Xpects's GitHub repository&lt;/a>.</description>
   </workspace>
   <description>
     &lt;p>
-    The Xpect configuration provisions a dedicated development environment for working with the set of projects from &lt;a href=&quot;https://github.com/eclipse/Xpect&quot;>Xpects's GitHub repository&lt;/a>.
+    The Xpect configuration provisions a dedicated development environment for working with the set of projects from &lt;a href=&quot;https://github.com/eclipse-xpect/Xpect&quot;>Xpects's GitHub repository&lt;/a>.
     &lt;/p>
     &lt;p>
     The installation is based on the latest EPP Committers package,

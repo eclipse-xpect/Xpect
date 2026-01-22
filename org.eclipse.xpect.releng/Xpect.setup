@@ -275,7 +275,7 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.xpect"
-      remoteURI="eclipse/Xpect">
+      remoteURI="eclipse-xpect/Xpect">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -423,7 +423,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.xpect.git"
-        value="=https://raw.githubusercontent.com/eclipse/Xpect/master/org.eclipse.xpect.releng/Xpect.setup->${git.clone.xpect.location|uri}/org.eclipse.xpect.releng/Xpect.setup"
+        value="=https://raw.githubusercontent.com/eclipse-xpect/Xpect/master/org.eclipse.xpect.releng/Xpect.setup->${git.clone.xpect.location|uri}/org.eclipse.xpect.releng/Xpect.setup"
         vm="true">
       <description>
         Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.
