@@ -24,7 +24,7 @@
 		<!-- Used for promotion --> 
 		<eclipse.repo>https://download.eclipse.org/releases/2024-06</eclipse.repo>
 		<justj.tools.repo>https://download.eclipse.org/justj/tools/updates/nightly/latest</justj.tools.repo>
-		<git.url>https://github.com/eclipse/Xpect</git.url>
+		<git.url>https://github.com/eclipse-xpect/Xpect</git.url>
 		<org.eclipse.storage.user>genie.xpect</org.eclipse.storage.user>
 		<org.eclipse.justj.p2.manager.remote>${org.eclipse.storage.user}@projects-storage.eclipse.org:/home/data/httpd/download.eclipse.org/xpect</org.eclipse.justj.p2.manager.remote>
 		<org.eclipse.justj.p2.manager.extra.args></org.eclipse.justj.p2.manager.extra.args>

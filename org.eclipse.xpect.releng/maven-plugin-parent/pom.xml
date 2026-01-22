@@ -349,9 +349,9 @@
 
 	<!-- Information about where the Xpect code lives. -->
 	<scm>
-		<connection>scm:git:git://github.com/eclipse/Xpect.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:eclipse/Xpect.git</developerConnection>
-		<url>https://github.com/eclipse/Xpect</url>
+		<connection>scm:git:git://github.com/eclipse-xpect/Xpect.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:eclipse-xpect/Xpect.git</developerConnection>
+		<url>https://github.com/eclipse-xpect/Xpect</url>
 	</scm>
 
 

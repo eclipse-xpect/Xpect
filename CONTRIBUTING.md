@@ -6,7 +6,7 @@ Thanks for your interest in this project.
 
 You can set up a pre-configured IDE for the development of Xpect using the following link:
 
-[![Create Eclipse Development Environment for Xpect](https://download.eclipse.org/oomph/www/setups/svg/Xpect.svg)](https://www.eclipse.org/setups/installer/?url=https://raw.githubusercontent.com/eclipse/Xpect/master/org.eclipse.xpect.releng/XpectConfiguration.setup&show=true "Click to open Eclipse-Installer Auto Launch or drag onto your running installer's title area")
+[![Create Eclipse Development Environment for Xpect](https://download.eclipse.org/oomph/www/setups/svg/Xpect.svg)](https://www.eclipse.org/setups/installer/?url=https://raw.githubusercontent.com/eclipse-xpect/Xpect/master/org.eclipse.xpect.releng/XpectConfiguration.setup&show=true "Click to open Eclipse-Installer Auto Launch or drag onto your running installer's title area")
 
 
 
@@ -19,5 +19,5 @@ The [eclipse-platform](https://github.com/eclipse-platform/.github/blob/main/CON
 
 Contact the project developers via issues (preferred) or via "xpect-dev" mailing list.
 
-* https://github.com/eclipse/Xpect/issues
+* https://github.com/eclipse-xpect/Xpect/issues
 * https://dev.eclipse.org/mailman/listinfo/xpect-dev
