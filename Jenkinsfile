@@ -11,6 +11,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '10'))
     disableConcurrentBuilds()
     skipDefaultCheckout false
+    timeout(time: 30, unit: 'MINUTES')
   }
 
   environment {
