@@ -4,7 +4,7 @@
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<unit id="de.itemis.xtext.antlr.sdk.feature.group" version="2.1.1.v201405091103"/>
-			<repository location="https://download.itemis.com/updates/releases/2.1.1/"/>
+			<repository location="https://artifacts.itemis.cloud/repository/p2/xtext-updates/releases/2.1.1/"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>

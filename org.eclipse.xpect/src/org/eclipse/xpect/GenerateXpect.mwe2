@@ -63,7 +63,7 @@ Workflow {
 			}
 			junitSupport = {
 				generateStub = false
-				junitVersion = "5"
+				junitVersion = "4"
 			}
 
 			parserGenerator = {
