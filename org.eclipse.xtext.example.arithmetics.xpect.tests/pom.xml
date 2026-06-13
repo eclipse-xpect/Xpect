@@ -20,7 +20,7 @@ Contributors:
 	<properties>
 		<os-jvm-flags />
 		<memory-settings>-Xmx1G</memory-settings>
-		<tycho-version>4.0.10</tycho-version>
+		<tycho-version>5.0.3</tycho-version>
 		<target-platform>xpect_r202403</target-platform>
 	</properties>
 
@@ -64,6 +64,7 @@ Contributors:
 							${maven.multiModuleProjectDirectory}/${target-platform}.target
 						</file>
 					</target>
+					<executionEnvironment>JavaSE-21</executionEnvironment>
 					<environments>
 						<environment>
 							<os>linux</os>
