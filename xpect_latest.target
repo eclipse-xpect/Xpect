@@ -23,13 +23,12 @@
 			<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
-			<repository location="https://download.eclipse.org/eclipse/updates/4.40-I-builds"/>
+			<repository location="https://download.eclipse.org/eclipse/updates/4.41-I-builds"/>
 		</location>
 		
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<unit id="org.hamcrest.core" version="2.2.0.v20230809-1000"/>
-			<unit id="org.hamcrest.core.source" version="2.2.0.v20230809-1000"/>
-			<repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2026-03"/>
+			<unit id="org.hamcrest.core" version="[2.2.0,3.0.0]"/>
+			<repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2026-09"/>
 		</location>
 	</locations>
 </target>

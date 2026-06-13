@@ -164,9 +164,8 @@
   </setupTask>
   <setupTask
       xsi:type="jdt:JRETask"
-      version="JavaSE-17"
-      location="${jre.location-17}"
-      name="JRE for JavaSE-17">
+      version="JavaSE-21"
+      location="${jre.location-21}">
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -184,13 +183,13 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="xtext.latest.release.url"
-      value="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.32.0">
+      value="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.43.0">
     <description>The p2 update site URL for the last Xtext release.</description>
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
       name="mwe.latest.release.url"
-      value="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.15.0">
+      value="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.26.0">
     <description>The p2 update site URL for the last MWE release.</description>
   </setupTask>
   <setupTask

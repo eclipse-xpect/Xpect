@@ -19,9 +19,7 @@ Contributors:
 	<bundle id="io.github.classgraph.source" version="0.0.0"/>
 	-->
 	<bundle id="org.hamcrest.core" version="0.0.0"/>
-	<bundle id="org.hamcrest.core.source" version="0.0.0"/>
 	<bundle id="org.junit" version="0.0.0"/>
-	<bundle id="org.junit.source" version="0.0.0"/>
 	<category-def name="Xpect 0.3.0" label="Xpect 0.3.0">
 		<description>
 			Tests for Xtext Languages

@@ -19,7 +19,7 @@ Contributors:
 
 	<properties>
 		<memory-settings>-Xmx1G</memory-settings>
-		<tycho-version>4.0.10</tycho-version>
+		<tycho-version>5.0.3</tycho-version>
 		<target-platform>xpect_r202403</target-platform>
 	</properties>
 
@@ -47,6 +47,7 @@ Contributors:
 										${maven.multiModuleProjectDirectory}/${target-platform}.target
 									</file>
 								</target>
+								<executionEnvironment>JavaSE-21</executionEnvironment>
 								<environments>
 									<environment>
 										<os>linux</os>
@@ -66,10 +67,10 @@ Contributors:
 							<artifactId>tycho-surefire-plugin</artifactId>
 							<version>${tycho-version}</version>
 							<configuration>
-								<systemPropertyVariables>
+								<systemProperties>
 									<xpectTestTitlePostfix>.${target-platform}</xpectTestTitlePostfix>
 									<xpectTestTitleShowEnvironment>true</xpectTestTitleShowEnvironment>
-								</systemPropertyVariables>
+								</systemProperties>
 								<reportsDirectory>${project.build.directory}/surefire-reports-plugin</reportsDirectory>
 								<useUIHarness>true</useUIHarness>
 								<useUIThread>false</useUIThread>
@@ -109,6 +110,7 @@ Contributors:
 										${maven.multiModuleProjectDirectory}/${target-platform}.target
 									</file>
 								</target>
+								<executionEnvironment>JavaSE-21</executionEnvironment>
 								<environments>
 									<environment>
 										<os>macosx</os>
@@ -132,10 +134,10 @@ Contributors:
 								<useUIHarness>true</useUIHarness>
 								<useUIThread>false</useUIThread>
 								<argLine>${memory-settings} -XstartOnFirstThread</argLine>
-								<systemPropertyVariables>
+								<systemProperties>
 									<xpectTestTitlePostfix>.${target-platform}</xpectTestTitlePostfix>
 									<xpectTestTitleShowEnvironment>true</xpectTestTitleShowEnvironment>
-								</systemPropertyVariables>
+								</systemProperties>
 								<dependencies>
 									<dependency>
 										<type>eclipse-plugin</type>
