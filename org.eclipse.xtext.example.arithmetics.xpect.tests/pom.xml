@@ -21,7 +21,7 @@ Contributors:
 		<os-jvm-flags />
 		<memory-settings>-Xmx1G</memory-settings>
 		<tycho-version>5.0.4</tycho-version>
-		<target-platform>xpect_r202403</target-platform>
+		<target-platform>xpect_r202512</target-platform>
 	</properties>
 
 	<profiles>

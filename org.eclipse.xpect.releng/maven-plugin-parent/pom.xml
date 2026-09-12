@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<target-platform>xpect_r202403</target-platform>
+		<target-platform>xpect_r202512</target-platform>
 		<xtextVersion>2.43.0</xtextVersion>
 		<tycho-version>5.0.4</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

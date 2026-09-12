@@ -249,7 +249,7 @@
           &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
           &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!promote&quot;/>
           &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
-              &lt;listEntry value=&quot;target-platform=xpect_r202403&quot;/>
+              &lt;listEntry value=&quot;target-platform=xpect_r202512&quot;/>
               &lt;listEntry value=&quot;user.home=$${system_property:user.home}&quot;/>
               &lt;listEntry value=&quot;tycho-version=4.0.10&quot;/>
           &lt;/listAttribute>
