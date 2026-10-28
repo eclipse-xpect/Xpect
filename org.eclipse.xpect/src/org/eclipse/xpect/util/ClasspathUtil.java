@@ -28,6 +28,8 @@ import org.apache.log4j.Logger;
 import org.eclipse.xpect.runner.XpectTestGlobalState;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.io.Closeables;
 
@@ -52,7 +54,15 @@ public class ClasspathUtil {
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
-		List<URL> urls = new ClassGraph().getClasspathURLs();
+		List<URL> urls = Lists.newArrayList(new ClassGraph().getClasspathURLs());
+		// ClassGraph 5.x no longer reports the plain application class path (e.g. in standalone maven surefire)
+		for (String entry : Splitter.on(File.pathSeparatorChar).omitEmptyStrings().split(System.getProperty("java.class.path", ""))) {
+			try {
+				urls.add(new File(entry).toURI().toURL());
+			} catch (MalformedURLException e) {
+				LOG.error(e.getMessage(), e);
+			}
+		}
 		if (!urls.isEmpty()) {
 			for (URL u : urls) {
 				if (!u.getFile().endsWith(".jar")) {
