@@ -52,7 +52,7 @@ public class ClasspathUtil {
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
-		List<URL> urls = new ClassGraph().getClasspathURLs();
+		List<URL> urls = getClasspathURLs();
 		if (!urls.isEmpty()) {
 			for (URL u : urls) {
 				if (!u.getFile().endsWith(".jar")) {
@@ -118,6 +118,17 @@ public class ClasspathUtil {
 			}
 		}
 		return result;
+	}
+
+	private static List<URL> getClasspathURLs() {
+		ClassGraph classGraph = new ClassGraph();
+		try {
+			// Only available on 5.x and not needed on 4.x.
+			ClassGraph.class.getDeclaredMethod("enableClasspath").invoke(classGraph);
+		} catch (Throwable throwable) {
+			//$FALL-THROUGH$
+		}
+		return classGraph.getClasspathURLs();
 	}
 
 	public static String getSymbolicName(InputStream manifestInputStream) {
