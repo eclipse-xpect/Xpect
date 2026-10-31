@@ -9,6 +9,7 @@
     <listAttribute key="M2_PROPERTIES">
         <listEntry value="target-platform=xpect_latest"/>
         <listEntry value="org.eclipse.justj.p2.manager.remote=localhost:${project_loc:/Xpect}/xpect"/>
+        <listEntry value="user.home=${system_property:user.home}"/>
     </listAttribute>
     <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
     <booleanAttribute key="M2_SKIP_TESTS" value="true"/>
@@ -22,6 +23,5 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-    <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-25/"/>
     <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:/org.eclipse.xpect.releng}/../"/>
 </launchConfiguration>

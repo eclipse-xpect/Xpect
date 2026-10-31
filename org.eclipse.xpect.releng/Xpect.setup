@@ -183,13 +183,13 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="xtext.latest.release.url"
-      value="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.43.0">
+      value="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.44.0">
     <description>The p2 update site URL for the last Xtext release.</description>
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
       name="mwe.latest.release.url"
-      value="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.26.0">
+      value="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.27.0">
     <description>The p2 update site URL for the last MWE release.</description>
   </setupTask>
   <setupTask
@@ -327,7 +327,7 @@
       </sourceLocator>
       <repositoryList>
         <repository
-            url="https://artifacts.itemis.cloud/repository/p2/xtext-updates/releases/2.1.1/"/>
+            url="https://artifacts.itemis.cloud/repository/p2/xtext-updates/releases/2.1.1"/>
         <repository
             url="https://download.eclipse.org/cbi/updates/license"/>
         <repository

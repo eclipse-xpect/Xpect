@@ -28,6 +28,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.xpect.runner.XpectTestGlobalState;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.io.Closeables;
 
@@ -53,6 +54,16 @@ public class ClasspathUtil {
 			LOG.error(e.getMessage(), e);
 		}
 		List<URL> urls = new ClassGraph().getClasspathURLs();
+		if (urls.isEmpty()) {
+			urls = Lists.newArrayList();
+			try {
+				Enumeration<URL> resources = classLoader.getResources(".");
+				while (resources.hasMoreElements())
+					urls.add(resources.nextElement());
+			} catch (IOException e) {
+				LOG.error(e.getMessage(), e);
+			}
+		}
 		if (!urls.isEmpty()) {
 			for (URL u : urls) {
 				if (!u.getFile().endsWith(".jar")) {
