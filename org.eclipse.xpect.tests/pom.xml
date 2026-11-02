@@ -12,9 +12,7 @@ Contributors:
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eclipse.xpect</groupId>
 	<artifactId>org.eclipse.xpect.tests</artifactId>
-	<version>0.3.0-SNAPSHOT</version>
 	<packaging>eclipse-test-plugin</packaging>
 
 	<parent>
@@ -24,8 +22,69 @@ Contributors:
 		<relativePath>../org.eclipse.xpect.releng/maven-test-parent</relativePath>
 	</parent>
 
+	<properties>
+		<classgraph4.version>4.8.149</classgraph4.version>
+		<classgraph5.version>5.0.0</classgraph5.version>
+	</properties>
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.11.0</version>
+				<executions>
+					<execution>
+						<id>copy-classgraph-4-for-tests</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/classgraph-libs/4</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.github.classgraph</groupId>
+									<artifactId>classgraph</artifactId>
+									<version>${classgraph4.version}</version>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-classgraph-5-for-tests</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/classgraph-libs/5</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.github.classgraph</groupId>
+									<artifactId>classgraph</artifactId>
+									<version>${classgraph5.version}</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>io.github.classgraph</groupId>
+									<artifactId>classgraph-classpath</artifactId>
+									<version>${classgraph5.version}</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>io.github.classgraph</groupId>
+									<artifactId>classgraph-vfs</artifactId>
+									<version>${classgraph5.version}</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>io.github.classgraph</groupId>
+									<artifactId>classgraph-base</artifactId>
+									<version>${classgraph5.version}</version>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>

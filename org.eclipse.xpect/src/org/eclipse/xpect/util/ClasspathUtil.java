@@ -35,6 +35,8 @@ import io.github.classgraph.ClassGraph;
 
 public class ClasspathUtil {
 
+	private static final String FILE_PROTOCOL = "file";
+
 	private static final String BUNDLE_SYMBOLIC_NAME = "Bundle-SymbolicName";
 
 	private final static Logger LOG = Logger.getLogger(ClasspathUtil.class);
@@ -55,60 +57,24 @@ public class ClasspathUtil {
 		List<URL> urls = getClasspathURLs();
 		if (!urls.isEmpty()) {
 			for (URL u : urls) {
-				if (!u.getFile().endsWith(".jar")) {
-					try {
-						java.io.File f = new java.io.File(u.toURI());
-						if (f.isDirectory()) {
-							int levels = 5;
-							W: while (levels >= 0 && f != null) {
-								for (String fileName : fileNames) {
-									java.io.File pl = new java.io.File(f + "/" + fileName);
-									if (pl.isFile()) {
-										result.add(pl.toURI().toURL());
-										break W;
-									}
-								}
-								levels--;
-								f = f.getParentFile();
-							}
-						}
-					} catch (URISyntaxException e) {
-						LOG.error(e.getMessage(), e);
-					} catch (MalformedURLException e) {
-						LOG.error(e.getMessage(), e);
-					}
-				}
-			}
-		}
-		// for some reason, ucl.getURLs() doesn't catch the current project in standalone maven surefire
-		if (XpectTestGlobalState.INSTANCE.testClass() != null) {
-			Class<?> clazz = XpectTestGlobalState.INSTANCE.testClass();
-			String[] segments = clazz.getName().split("\\.");
-			String fileName = Joiner.on('/').join(segments) + ".class";
-			URL resource = clazz.getClassLoader().getResource(fileName);
-			if ("jar".equals(resource.getProtocol())) {
-				// URI location = URI.createURI(resource.toString()).trimSegments(segments.length).appendSegment("");
-				// return location;
-			} else {
-				File classFile;
+				if (!FILE_PROTOCOL.equals(u.getProtocol()) || u.getFile().endsWith(".jar"))
+					continue;
 				try {
-					classFile = new File(resource.toURI());
-					File packageRootFolder = classFile;
-					for (int i = 0; i < segments.length; i++) {
-						packageRootFolder = packageRootFolder.getParentFile();
-						if (packageRootFolder == null)
-							LOG.error("Could not determine package root for " + clazz);
+					java.io.File f = new java.io.File(u.toURI());
+					if (!f.isDirectory()) {
+						continue;
 					}
-					File current = packageRootFolder;
-					W: while (current != null) {
-						for (String name : fileNames) {
-							java.io.File pl = new java.io.File(current, name);
+					int levels = 5;
+					W: while (levels >= 0 && f != null) {
+						for (String fileName : fileNames) {
+							java.io.File pl = new java.io.File(f + "/" + fileName);
 							if (pl.isFile()) {
 								result.add(pl.toURI().toURL());
 								break W;
 							}
 						}
-						current = current.getParentFile();
+						levels--;
+						f = f.getParentFile();
 					}
 				} catch (URISyntaxException e) {
 					LOG.error(e.getMessage(), e);
@@ -116,6 +82,41 @@ public class ClasspathUtil {
 					LOG.error(e.getMessage(), e);
 				}
 			}
+		}
+		// for some reason, ucl.getURLs() doesn't catch the current project in standalone maven surefire
+		if (XpectTestGlobalState.INSTANCE.testClass() == null) {
+			return result;
+		}
+		Class<?> clazz = XpectTestGlobalState.INSTANCE.testClass();
+		String[] segments = clazz.getName().split("\\.");
+		String fileName = Joiner.on('/').join(segments) + ".class";
+		URL resource = clazz.getClassLoader().getResource(fileName);
+		if (resource == null || !FILE_PROTOCOL.equals(resource.getProtocol()))
+			return result;
+		File classFile;
+		try {
+			classFile = new File(resource.toURI());
+			File packageRootFolder = classFile;
+			for (int i = 0; i < segments.length; i++) {
+				packageRootFolder = packageRootFolder.getParentFile();
+				if (packageRootFolder == null)
+					LOG.error("Could not determine package root for " + clazz);
+			}
+			File current = packageRootFolder;
+			W: while (current != null) {
+				for (String name : fileNames) {
+					java.io.File pl = new java.io.File(current, name);
+					if (pl.isFile()) {
+						result.add(pl.toURI().toURL());
+						break W;
+					}
+				}
+				current = current.getParentFile();
+			}
+		} catch (URISyntaxException e) {
+			LOG.error(e.getMessage(), e);
+		} catch (MalformedURLException e) {
+			LOG.error(e.getMessage(), e);
 		}
 		return result;
 	}
