@@ -182,15 +182,15 @@
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup:VariableTask"
-      name="xtext.latest.release.url"
+      name="xtext.latest.url"
       value="https://download.eclipse.org/modeling/tmf/xtext/updates/nightly">
-    <description>The p2 update site URL for the last Xtext release.</description>
+    <description>The p2 update site URL for the latest Xtext nightly build.</description>
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
-      name="mwe.latest.release.url"
+      name="mwe.latest.url"
       value="https://download.eclipse.org/modeling/emft/mwe/updates/nightly">
-    <description>The p2 update site URL for the last MWE release.</description>
+    <description>The p2 update site URL for the latest MWE nightly build.</description>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -206,9 +206,9 @@
     <requirement
         name="org.eclipse.emf.sdk.feature.group"/>
     <repository
-        url="${xtext.latest.release.url}"/>
+        url="${xtext.latest.url}"/>
     <repository
-        url="${mwe.latest.release.url}"/>
+        url="${mwe.latest.url}"/>
     <repository
         url="https://download.eclipse.org/releases/${eclipse.target.platform}"/>
   </setupTask>
@@ -238,7 +238,6 @@
       force="true"
       targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/Xpect-generate.launch"
       encoding="UTF-8">
-    <description>Initialize JDT's package explorer to show working sets as its root objects</description>
     <content>
       &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
       &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
@@ -249,9 +248,8 @@
           &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
           &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!promote&quot;/>
           &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
-              &lt;listEntry value=&quot;target-platform=xpect_r202512&quot;/>
+              &lt;listEntry value=&quot;target-platform=xpect_latest&quot;/>
               &lt;listEntry value=&quot;user.home=$${system_property:user.home}&quot;/>
-              &lt;listEntry value=&quot;tycho-version=4.0.10&quot;/>
           &lt;/listAttribute>
           &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;EMBEDDED&quot;/>
           &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
@@ -265,7 +263,6 @@
           &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES&quot; value=&quot;true&quot;/>
           &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR&quot; value=&quot;false&quot;/>
           &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD&quot; value=&quot;true&quot;/>
-          &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot; value=&quot;org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/&quot;/>
           &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;${git.clone.xpect.location}&quot;/>
       &lt;/launchConfiguration>
 
@@ -295,6 +292,12 @@
       <properties
           key="autocrlf"
           value="input"/>
+    </configSections>
+    <configSections
+        name="branch">
+      <properties
+          key="autoSetupRebase"
+          value="always"/>
     </configSections>
     <description>${scope.project.label}</description>
   </setupTask>
@@ -333,11 +336,9 @@
         <repository
             url="https://download.eclipse.org/releases/${eclipse.target.platform}"/>
         <repository
-            url="${xtext.latest.release.url}"/>
+            url="${xtext.latest.url}"/>
         <repository
-            url="${mwe.latest.release.url}"/>
-        <repository
-            url="https://download.eclipse.org/modeling/emft/mwe/updates/nightly"/>
+            url="${mwe.latest.url}"/>
       </repositoryList>
     </targlet>
   </setupTask>
