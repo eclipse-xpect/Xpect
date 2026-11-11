@@ -26,6 +26,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.IType;
+import org.eclipse.xpect.util.ClasspathUtil;
+import org.eclipse.xpect.util.IJavaReflectAccess;
 import org.eclipse.xtext.common.types.JvmExecutable;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -33,14 +35,12 @@ import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.access.IMirror;
 import org.eclipse.xtext.common.types.access.TypeResource;
-import org.eclipse.xtext.common.types.access.impl.ClassMirror;
+import org.eclipse.xtext.common.types.access.binary.BinaryClassMirror;
 import org.eclipse.xtext.common.types.access.jdt.JdtTypeMirror;
 import org.eclipse.xtext.common.types.util.JavaReflectAccess;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
-import org.eclipse.xpect.util.ClasspathUtil;
-import org.eclipse.xpect.util.IJavaReflectAccess;
 
 import com.google.common.collect.Lists;
 import com.google.common.io.Closeables;
@@ -50,7 +50,7 @@ public class UIJavaReflectAccess implements IJavaReflectAccess {
 
 	private final static Logger LOG = Logger.getLogger(UIJavaReflectAccess.class);
 
-	private Bundle getBundle(ClassMirror mirror) {
+	private Bundle getBundle(BinaryClassMirror mirror) {
 		Class<?> mirroredClass = mirror.getMirroredClass();
 		return FrameworkUtil.getBundle(mirroredClass);
 	}
@@ -168,8 +168,8 @@ public class UIJavaReflectAccess implements IJavaReflectAccess {
 		Bundle bundle = null;
 		if (typeMirror instanceof JdtTypeMirror)
 			bundle = getBundle((JdtTypeMirror) typeMirror);
-		if (typeMirror instanceof ClassMirror)
-			bundle = getBundle((ClassMirror) typeMirror);
+		if (typeMirror instanceof BinaryClassMirror)
+			bundle = getBundle((BinaryClassMirror) typeMirror);
 		if (bundle == null)
 			return null;
 		String className = jvmType.getQualifiedName();
